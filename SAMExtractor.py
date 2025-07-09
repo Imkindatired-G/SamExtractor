@@ -31,7 +31,7 @@ def run_rawcopy_for_file(file_path, raw_output, temp_output, final_output):
     print("[*] RawCopy Output:\n", result.stdout)
 
     if result.returncode == 0 and os.path.exists(raw_output):
-        os.rename(raw_output, temp_output)
+        os.rename(raw_output, temp_output) # I know how this looks, Windows doesn't like having the SAM file exist outside of system32. This is my cheaty fix.
         print(f"[+] File dumped and renamed to: {temp_output}")
 
         try:
